@@ -52,5 +52,10 @@ SECTIONS {
 		. = ALIGN(256);
 		_end = .;
 	}
+
+  .shstrtab : {
+    /* Discarding .shstrtab is not supported by LLD (LLVM LD). */
+    *(.shstrtab)
+  }
 	/DISCARD/ : { *(*) }
 }
